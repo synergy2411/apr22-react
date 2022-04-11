@@ -11,12 +11,13 @@ function App() {
     <div className="App">
       <h4>Hello React!!</h4>
       <Expenses />
-      <hr />
+      
+      {/* <hr /> */}
 
-    <button onClick={clickHandler}>Toggle Component</button>
+    {/* <button onClick={clickHandler}>Toggle Component</button> */}
 
       {/* {showComp ? <ClassBased /> :  "Click button to see component"} */}
-      {showComp && <ClassBased />}
+      {/* {showComp && <ClassBased />} */}
     </div>
   );
 }
