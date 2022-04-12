@@ -53,7 +53,7 @@ const Expenses = () => {
             <hr />
             <div className='row'>
                 {
-                    filteredExpenses.map(exp => <ExpenseItem key={exp.id} expense = {exp} />)
+                    filteredExpenses.map(exp =>  <ExpenseItem expense = {exp} key={exp.id} />)
                 }
             </div>
 

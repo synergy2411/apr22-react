@@ -1,11 +1,14 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { v4 } from 'uuid';
+import classes from './AddExpense.module.css';
 
 const AddExpense = (props) => {
 
     const [enteredTitle, setEnteredTitle] = useState('');
-    const [enteredAmount, setEnteredAmount] = useState('')
+    // const [enteredAmount, setEnteredAmount] = useState('')
     const [enteredCreatedAt, setEnteredCreatedAt] = useState('')
+    const [errors, setErrors] = useState([{message : ""}])
+    const inputAmountRef = useRef()
 
     // let title = "My Title";
     const titleChangeHandler = (event) => {
@@ -14,15 +17,23 @@ const AddExpense = (props) => {
 
     const createdAtChangeHandler = (event) => setEnteredCreatedAt(event.target.value)
 
-    const amountChangeHandler = event => setEnteredAmount(event.target.value)
+    // const amountChangeHandler = event => setEnteredAmount(event.target.value)
+
+    const titleBlurHandler = (event) => {
+        if(event.target.value.length < 3){
+            setErrors(prevState => [{message : "Title length should be greater than 3"}, ...prevState])
+        }else{
+            setErrors([{message : ""}])
+        }
+    }
 
     const submitHandler = (event) => {
         event.preventDefault();
-        console.log(enteredTitle, enteredAmount, enteredCreatedAt)
+        // console.log(enteredTitle, enteredAmount, enteredCreatedAt)
         const expense = {
             id : v4(),
             title : enteredTitle,
-            amount  : enteredAmount,
+            amount  : inputAmountRef.current.value,
             createdAt : new Date(enteredCreatedAt)
         }
         props.onAddNewExpense(expense);
@@ -41,20 +52,27 @@ const AddExpense = (props) => {
                             <div className="form-group">
                                 <label htmlFor="title">Title :</label>
                                 <input type="text"
+                                    onBlur={titleBlurHandler}
                                     value={enteredTitle}
                                     name="title"
-                                    className="form-control"
+                                    className={`${errors[0].message === '' ? '' : classes['my-error']}`}
                                     onChange={titleChangeHandler} />
+                                    {errors.map(err => <p>{err.message}</p>)}
                             </div>
                             {/* amount */}
                             <div className="form-group">
                                 <label htmlFor="amount">Amount :</label>
-                                <input type="number" value={enteredAmount} 
+                                <input type="number" 
+                                    ref = {inputAmountRef} 
+                                    className="form-control" 
+                                    min="0.1" 
+                                    step="0.1"/>
+                                {/* <input type="number" value={enteredAmount} 
                                     onChange={amountChangeHandler} 
                                     name="amount" 
                                     className="form-control" 
                                     min="0.1" 
-                                    step="0.1" />
+                                    step="0.1" /> */}
                             </div>
                             {/* createdAt */}
                             <div className="form-group">
