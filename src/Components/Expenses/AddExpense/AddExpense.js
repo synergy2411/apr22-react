@@ -69,7 +69,14 @@ const AddExpense = (props) => {
                             </div>
                             {/* button */}
                             <div className="form-group">
-                                <button type="submit" className="btn btn-primary">Submit</button>
+                                <div className="row">
+                                    <div className="col-6">
+                                    <button type="submit" className="btn btn-block btn-primary">Submit</button>
+                                    </div>
+                                    <div className="col-6">
+                                    <button type="button" onClick={() => props.onCancelShowForm() } className="btn btn-block btn-warning">Cancel</button>
+                                    </div>
+                                </div>
                             </div>
                         </form>
                     </div>
