@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import ClassBased from "./Components/Demo/ClassBased/ClassBased";
+import UseReducerDemo from './Components/Demo/Hooks/UseReducerDemo';
 import Expenses from "./Components/Expenses/Expenses";
 
 function App() {
@@ -10,7 +11,10 @@ function App() {
   return (
     <div className="App">
       <h4>Hello React!!</h4>
-      <Expenses />
+      
+      <UseReducerDemo />
+
+      {/* <Expenses /> */}
       
       {/* <hr /> */}
 
