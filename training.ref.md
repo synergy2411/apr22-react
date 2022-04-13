@@ -82,8 +82,18 @@ useEffect(() => { return () => {}},[Deps])
 
 
 
-- useRef
-- useContext
+- useRef : to access DOM in react App
+- useContext : to consume the Context API
+
+"Prop drilling"
+
+
+
+
+
+
+
+
 - useMemo
 - useCallback
 - useDebugValue
