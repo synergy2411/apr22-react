@@ -88,18 +88,11 @@ useEffect(() => { return () => {}},[Deps])
 "Prop drilling"
 
 
-
-
-
-
-
-
 - useMemo : memoized the value returned by the supplied function
 let memoizedValue = useMemo(() => "Hello World", [])    // "Hello World"
 let memoizedValue = useMemo(() => otherFn, [])    // otherFn
 
 - useCallback : memoized the supplied function
-- useDebugValue
 
 
 # React < 16.8
@@ -107,10 +100,39 @@ let memoizedValue = useMemo(() => otherFn, [])    // otherFn
 - Class based / Container / Stateful
 
 
+shouldComponentUpdate(nextProps, nextState){
+  return nextProps.show === this.props.show;   // component will re-render, if true
+}
+
+
+
+# to install react-router-dom
+> npm i react-router-dom@5
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 synergy2411@outlook.com
-
-
-shouldComponentUpdate(prevProps, currProps){
-  return prevProps.show === currProps.show;   // component will re-render, if true
-}
