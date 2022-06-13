@@ -1,6 +1,6 @@
-import { Component } from "react";
+import { Component, PureComponent } from "react";
 
-class ClassBased extends Component {
+class ClassBased extends PureComponent {
 
     constructor(){
         super()
@@ -21,6 +21,10 @@ class ClassBased extends Component {
         console.log("COMPONENT WILL UNMOUNT");
     }
 
+    shouldComponentUpdate(prevProps, currProps){
+        return false;
+    }
+
     clickHandler = () => {
         // this.state.counter += 1; 
         this.setState({
@@ -29,7 +33,7 @@ class ClassBased extends Component {
     }
 
     render(){
-        console.log("RENDER")
+        console.log("Class based RENDER")
         return (
             <div>
                 <h3>The Class based component</h3>

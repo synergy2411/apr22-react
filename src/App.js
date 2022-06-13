@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import ClassBased from "./Components/Demo/ClassBased/ClassBased";
+import HookDemo from './Components/Demo/Hooks/HookDemo';
 import UseEffectDemo from './Components/Demo/Hooks/UseEffectDemo';
 import UseReducerDemo from './Components/Demo/Hooks/UseReducerDemo';
 import Expenses from "./Components/Expenses/Expenses";
@@ -14,12 +15,16 @@ function App() {
     <AuthContext.Provider value={{isLoggedIn : false}}>
     <div className="App">
       <h4>Hello React!!</h4>
+
+      
+
+      <HookDemo />
       
       {/* <UseEffectDemo /> */}
 
       {/* <UseReducerDemo /> */}
 
-      <Expenses />
+      {/* <Expenses /> */}
       
       {/* <hr /> */}
 

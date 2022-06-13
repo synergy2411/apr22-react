@@ -94,11 +94,23 @@ useEffect(() => { return () => {}},[Deps])
 
 
 
-- useMemo
-- useCallback
+- useMemo : memoized the value returned by the supplied function
+let memoizedValue = useMemo(() => "Hello World", [])    // "Hello World"
+let memoizedValue = useMemo(() => otherFn, [])    // otherFn
+
+- useCallback : memoized the supplied function
 - useDebugValue
 
 
 # React < 16.8
 - Functional / Presentational / Stateless - manage the state, make any side effect code
 - Class based / Container / Stateful
+
+
+
+synergy2411@outlook.com
+
+
+shouldComponentUpdate(prevProps, currProps){
+  return prevProps.show === currProps.show;   // component will re-render, if true
+}
