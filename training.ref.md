@@ -112,8 +112,11 @@ shouldComponentUpdate(nextProps, nextState){
 
 
 
+# Route Parameter
+http://localhost:3000/authors/:authorId
 
-
+# Query Parameter
+http://localhost:3000/authors/102/books?sort=desc
 
 
 

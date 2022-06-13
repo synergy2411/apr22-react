@@ -6,14 +6,17 @@ import HookDemo from './Components/Demo/Hooks/HookDemo';
 import UseEffectDemo from './Components/Demo/Hooks/UseEffectDemo';
 import UseReducerDemo from './Components/Demo/Hooks/UseReducerDemo';
 import Expenses from "./Components/Expenses/Expenses";
+import Header from './Components/Header/Header';
 import AuthContext from './context/authContext';
 import Authors from './pages/Authors/Authors';
 import FavAuthor from './pages/Authors/FavAuthor/FavAuthor';
+import Books from './pages/Books/Books';
 
 function App() {
   return (
     <AuthContext.Provider value={{isLoggedIn : false}}>
     <div className="App">
+      <Header />
       <h4>Hello React!!</h4>
       <Switch>
       <Route path="/" exact>     
@@ -25,7 +28,9 @@ function App() {
       <Route path="/hooks">
         <HookDemo />
       </Route>
-      
+      <Route path = "/authors/:authorId/books" exact>
+        <Books />
+      </Route>
       <Route path="/authors">
         <Authors />
       </Route>

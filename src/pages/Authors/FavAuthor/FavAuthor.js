@@ -1,5 +1,5 @@
 import React, { useEffect, useState} from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 const FavAuthor = () => {
     const { authorId } = useParams();
@@ -20,6 +20,7 @@ const FavAuthor = () => {
                 <div className='card-body'>
                     <p className='lead'>{author.name}</p>
                     <p>{author.email}</p>
+                    <Link to={`/authors/${authorId}/books`}>Show All Books</Link>
                 </div>
             </div>
         );
