@@ -134,7 +134,9 @@ http://localhost:3000/authors/102/books?sort=desc
 
 
 
-
+# SPA : loads all the App content at client side
+- load app functionality at initial rendering - very commonly used
+- lazy load app functionality - not frequently used
 
 
 

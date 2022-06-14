@@ -1,17 +1,15 @@
-import { useState } from 'react';
+import React, { Suspense } from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 
-import ClassBased from "./Components/Demo/ClassBased/ClassBased";
-import HookDemo from './Components/Demo/Hooks/HookDemo';
-import UseEffectDemo from './Components/Demo/Hooks/UseEffectDemo';
-import UseReducerDemo from './Components/Demo/Hooks/UseReducerDemo';
 import Expenses from "./Components/Expenses/Expenses";
 import Header from './Components/Header/Header';
 import AuthContext from './context/authContext';
-import Authors from './pages/Authors/Authors';
-import FavAuthor from './pages/Authors/FavAuthor/FavAuthor';
-import Books from './pages/Books/Books';
-import NewBook from './pages/Books/NewBook/NewBook';
+
+
+const HookDemo = React.lazy(() => import("./Components/Demo/Hooks/HookDemo"))
+const Authors = React.lazy(() => import("./pages/Authors/Authors"))
+const Books = React.lazy(() => import("./pages/Books/Books"))
+const NewBook = React.lazy(() => import("./pages/Books/NewBook/NewBook"))
 
 function App() {
   return (
@@ -19,6 +17,7 @@ function App() {
     <div className="App">
       <Header />
       <h4>Hello React!!</h4>
+      <Suspense fallback={<p>Loading...</p>}>
       <Switch>
       <Route path="/" exact>     
         <Redirect to="/expenses" />  
@@ -39,6 +38,7 @@ function App() {
         <Authors />
       </Route>
       </Switch>
+      </Suspense>
     </div>
     </AuthContext.Provider>
   );
