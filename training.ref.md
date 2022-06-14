@@ -120,9 +120,15 @@ http://localhost:3000/authors/102/books?sort=desc
 
 
 
+- Prompt
 
+- Code Spliting / Lazy Loading
 
+- migrating from v5 to v6 (react-router-dom)
 
+- Preact : Intro
+
+- Integrate Preact with App
 
 
 

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useHistory, useLocation, useParams } from 'react-router-dom';
+import { Link, useHistory, useLocation, useParams } from 'react-router-dom';
 
 const sortBooks = (books, isAscending) => {
     if(isAscending){
@@ -48,6 +48,9 @@ const Books = () => {
             <>
             <button className='btn btn-dark' onClick={onSortBooks}>
                 Sort {isAscending ? 'Decending' : 'Ascending'}</button>
+                <br/>
+                <Link to={`/authors/${authorId}/books/add-new`}>Add New Book</Link>
+                <br/>
             <ul>
                 {sortedBooks.map(book => <li key={book.id}>{book.title.toUpperCase()}</li>)}
             </ul>

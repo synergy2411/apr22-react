@@ -11,6 +11,7 @@ import AuthContext from './context/authContext';
 import Authors from './pages/Authors/Authors';
 import FavAuthor from './pages/Authors/FavAuthor/FavAuthor';
 import Books from './pages/Books/Books';
+import NewBook from './pages/Books/NewBook/NewBook';
 
 function App() {
   return (
@@ -27,6 +28,9 @@ function App() {
       </Route>
       <Route path="/hooks">
         <HookDemo />
+      </Route>
+      <Route path="/authors/:authorId/books/add-new" exact>
+        <NewBook />
       </Route>
       <Route path = "/authors/:authorId/books" exact>
         <Books />
